@@ -1,10 +1,11 @@
 Some Importaint Points.
+<hr>
 
 #Repository of the code that is written during the class.
-
+<hr>
 #Classroom instructions
 #Here are some instructions for being prepared for all our future classes:
-
+<hr>
 1.Always join the class through your laptop and always try out the things that are being discussed in the class
 Install VSCode: https://code.visualstudio.com/Download and keep it open during the class.
 Make sure that you understand every concept which is taught in the class. If you don't understand anything, please communicate the same to me during the class. Drop a message in the chat or raise your hand (if that is an option)
