@@ -14,6 +14,7 @@
 
 
 <b>Contents <b> <br><br>
+<hr>
  Lecture-1: Introduction to HTML & Basic HTML Tag. <br><br>
 
 <b>#Additional Resources<b>
@@ -30,7 +31,7 @@ Touch typing means typing without looking at the keyboard. It helps in avoiding 
 These are used to perform normal actions in your computer using the terminal (or Powershell) instead of using the graphical user interface. Learning these will enable you to do a lot more with your computers that you currently can. It will enable you to use your computer without using the mouse/touchpad, which will greatly increase your speed and productivity. Here is a link that you can use to learn the basic commands: https://www.javatpoint.com/linux-commands <br>
 
 <b>4.Git <b><br><br>
-Git is the single most important software that you must learn to be a software developer. Git is a version control system and a collaboration system which enables people to work on the same codebase for a long time. You should practice keeping every single work file version controlled in Git. You can see the basic git commands in this link. <br><br>
+Git is the single most important software that you must learn to be a software developer. Git is a version control system and a collaboration system which enables people to work on the same codebase for a long time. You should practice keeping every single work file version controlled in Git. You can see the basic git commands  <a href="https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html#:~:text=%20%20%20%20Git%20task%20%20,clone%20username%40host%3A%2Fpath%2Fto%2Freposit%20...%20%2021%20more%20rows%20">in this link.</a>  <br><br>
 
 <b>5.GitHub/GitLab/Gitae/BitBucket<b> <br><br>
-#These websites make it easy to collaborate in teams using Git. This blog on FreeCodeCamp can help you get started with it. <br><br>
+These websites make it easy to collaborate in teams using Git.<a href="https://www.freecodecamp.org/news/how-to-use-basic-git-and-github-commands/">This blog</a>  on FreeCodeCamp can help you get started with it. <br><br>
