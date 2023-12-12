@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+             width: 300px;
+             height: 200px;
+            /* height:100vh;  */
+            background-color: aqua;
+            border: 1px solid black;
+            border-radius: 20px;
+            /* margin-bottom: 20px; */
+            text-align: center;
+            
+            
+        }
+        .grid{
+            display: grid;
+            
+            grid-template-columns:auto auto auto ;
+            height: 100vh;
+           
+            /* grid-gap: 20px; */
+            place-items: center;
+            column-gap: 10px;
+            row-gap: 10px;
+
+        }
+         #box-1{
+            /* row start/column start/row end/column end */
+            /* grid-area: 1/1/4/3; */
+            /* grid-row-start: 1;
+            grid-row-end: 3; */
+            
+
+        } 
+    .animation{
+        margin-bottom: 20px;
+        width: 400px;
+        height: 400px;
+        background-color: aqua;
+        animation-name: vishwajit;
+        animation-duration: 10s;
+    }
+    @keyframes vishwajit{
+        0% {background-color: aqua;}
+        20% {background-color: red;}
+        40% {background-color: yellow;}
+        60% {background-color: brown;}
+        80% {background-color: blue;}
+        100% {background-color: aqua;}
+    }
+    </style>
+</head>
+<body>
+    <h1> Css Grid</h1>
+    <div class="animation"></div>
+    
+    <div class="grid">
+        <div id="box-1" class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+        <div class="grid-item">10</div>
+
+    </div>
+</body>
+</html>

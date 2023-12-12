@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container>div {
+  background-color: DodgerBlue;
+  color: white;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+.flex-container {
+  display: flex;
+  background-color: #f1f1f1;
+}
+        .flex-box{
+            display: flex;
+            /* margin-right: 20px; */
+            gap: 20px;
+             /* align-self: center;  */
+           /* justify-content: center; */
+            /* align-items: center; */
+        }
+        .flex-box>div{
+            display: flex;
+            
+            width: 100px;
+            height: 100px;
+           
+            background-color: aqua;
+             justify-content: center;
+            /* align-items: center;  */
+            align-self: center;
+
+        }
+
+        div{
+            /* background-color: green; */
+            color: red;
+        }
+        @media screen and (min-width:480px) and (max-width:800px) {
+            div{
+                background-color: aqua;
+            }
+            img{
+                width: 100px;
+                height: 100px;
+                border-radius: 20px;
+            }
+        }
+
+#box-1{
+    order: 4;
+    flex-grow: 1;
+}
+#box-2{
+    order: 3;
+    flex-grow: 5;
+}
+#box-4{
+    order: 1;
+}
+#box-3{
+    order: 2;
+}
+
+
+.grid-container {
+  display:grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Media query -->
+    <!-- Syntex  @media screen and (min-width:480px)/(max-width) {
+        h1{
+
+        }
+    }-->
+
+    <div>
+        I am Santosh Kumar From Bihar.
+    </div>
+    <hr>
+
+    <!-- <img src="https://images.unsplash.com/photo-1700605149722-50c0d7fe003d?q=80&w=2215&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img-1"> -->
+
+    <!-- flex Box -->
+
+    <div id="" class="flex-box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+
+    <div class="flex-container">
+        <div id="box-1" >1</div>
+        <div id="box-2" >2</div>
+        <div  id="box-3">3</div> 
+        <div id="box-4" >4</div>
+      </div>
+
+
+      <div class="grid-container">
+        <div class="grid-item">12</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>  
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>  
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>  
+      </div>
+      
+
+
+</body>
+</html>
