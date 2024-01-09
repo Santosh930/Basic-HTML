@@ -1,5 +1,5 @@
 document.querySelector("form").addEventListener("submit", todoApp);
-let taskArr = JSON.parse(localStorage.getItem("todoList")) || [];
+let taskArr = JSON.parse(localStorage.getItem("todoList"))|| [];
 window.addEventListener("load", function () {
   displayTable(taskArr);
 });
@@ -35,6 +35,7 @@ function displayTable(taskArr) {
     col3.addEventListener("click", function () {
       //event.target.parentNode.remove();
       deleteRow(elem, index);
+      console.log(elem,index);
     });
     col3.style.color = "red";
     row.append(col1, col2, col3);
@@ -45,10 +46,12 @@ function displayTable(taskArr) {
 function deleteRow(elem, index) {
   //console.log(elem, index)
   taskArr.splice(index, 1);
-  console.log(taskArr);
+  // console.log(taskArr);
   localStorage.setItem("todoList", JSON.stringify(taskArr));
   displayTable(taskArr);
 }
+
+
 
 
 
