@@ -49,34 +49,13 @@ polymorphism
 //  console.log(JSON.parse(sessionStorage.getItem('newArr')));
 
 
-// class Employee {
-//      Name(fname,lnmae) {
-//         this.fname=fname;
-//         this.lnmae=lnmae;
-        
-//     };
-
-//     PrintFullName(){
-//         document.write(`${this.fname} ${this.lnmae} `);
-//     }
-// }
-
-// let e1= new Employee('Santosh','Kumar');
-// let e2= new Employee('Pawan','Sharma');
-// let e3= new Employee('Anil','Kumar');
-// let e4= new Employee('Sunil','Kumar');
-// e1.PrintFullName();
-// e2.PrintFullName();
-// e3.PrintFullName();
-// e4.PrintFullName();
-
 //Polyfill
 
-let arr=[];
+// let arr=[];
 
-Array.prototype.vishwajit=function(){
-    console.log('Vishawajit');
-}
+// Array.prototype.vishwajit=function(){
+//     console.log('Vishawajit');
+// }
 // arr.vishwajit();
 // console.log(arr);
 

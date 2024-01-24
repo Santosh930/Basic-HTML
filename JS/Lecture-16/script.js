@@ -36,7 +36,7 @@ let obj={
 let newObj={...obj};
 console.log(newObj)
 
-let arr=[1,]
+
 
 
 
