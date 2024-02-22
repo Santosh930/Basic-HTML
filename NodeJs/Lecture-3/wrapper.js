@@ -1,8 +1,11 @@
-// (function(exports,module,require,__dirname,__filename){
-//     const name='Santosh Kumar';
-//     console.log(name);
+(function(exports,module,require,__dirname,__filename){
+    var name='Santosh Kumar';
+    console.log(name);
 
-// })();
+})();
+
+console.log(name);
+
 
 //private data
 
@@ -12,3 +15,11 @@
 // (function(a,b){
 //     console.log(a+b);
 // })(20,10);
+(function(a,b){
+    let result=a+b;
+    console.log(result);
+})(20,30);
+
+//require
+//exports
+//
