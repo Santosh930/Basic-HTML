@@ -37,7 +37,7 @@ connection.connect((err) => {
 //     [17,'Chuck', 'Main Road 989'],
 //     [18,'Viola', 'Sideway 1633']
 //   ];
-connection.query("SELECT * FROM santosh limit 5", (err, results) => {
+connection.query("drop table santosh", (err, results) => {
   if (err) {
     console.error('Error executing MySQL query:', err);
     return;

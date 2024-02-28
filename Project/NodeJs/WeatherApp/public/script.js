@@ -3,6 +3,7 @@ async function fetchWeather() {
     try {
       const response = await fetch(`/weather?city=${city}`);
       const data = await response.json();
+      console.log(data);
       displayWeather(data);
     } catch (error) {
       console.error('Error fetching weather:', error);
@@ -10,9 +11,11 @@ async function fetchWeather() {
   }
   
   function displayWeather(data) {
+    console.log(data);
     const weatherInfoDiv = document.getElementById('weatherInfo');
     if (data.error) {
       weatherInfoDiv.innerText = data.error;
+      console.log(data.error);
       return;
     }
     const { name, main: { temp, humidity }, weather } = data;
