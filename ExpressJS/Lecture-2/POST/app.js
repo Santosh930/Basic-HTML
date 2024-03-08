@@ -1,16 +1,23 @@
 var express = require('express');  
-var app=express();  
-app.get('/app', function (req, res) {  
-  console.log(req);
-    // console.log(`BaseUrl:${req.baseUrl}`);
-    // console.log(`params:${req.params}`);
-    // console.log(`Body:${req.body}`);
-    // console.log(`query:${req.ip}`);
-res.send('<p>Username: ' + req.query['first_name']+'</p><p>Lastname: '+req.query['last_name']+'</p>');  
+var app = express();  
+var bodyParser = require('body-parser');  
+// Create application/x-www-form-urlencoded parser  
+var urlencodedParser = bodyParser.urlencoded({ extended: false })  
+// app.use(express.static('public'));  
+app.get('/index', function (req, res) {  
+   res.sendFile( __dirname + "/" + "index.html" );  
+})  
+app.post('/process_post', urlencodedParser, function (req, res) {  
+   // Prepare output in JSON format  
+   response = {  
+       first_name:req.body.first_name,  
+       last_name:req.body.last_name  
+   };  
+   console.log(response);  
+   res.end(JSON.stringify(response));  
 })  
 var server = app.listen(8000, function () {  
   var host = server.address().address  
-//   console.log(host)
   var port = server.address().port  
   console.log("Example app listening at http://%s:%s", host, port)  
 })  

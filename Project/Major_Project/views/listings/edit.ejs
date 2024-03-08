@@ -1,0 +1,49 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+
+    <h3 class="text-center m-3">Edit your Listings</h3>
+    <div class="row m-3">
+        <div class="col-8 offset-2">
+            <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+               <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" name="listing[title]" value="<%= listing.title %>" type="text">
+               </div>
+               <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" name="listing[description]"  type="text"><%= listing.description %></textarea>
+
+               </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image Link</label>
+                    <input class="form-control" type="url" value="<%= listing.image %>" name="listing[image]">
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="form-label" for="price">Price</label>
+                        <input class="form-control" name="listing[price]"type="number" value="<%= listing.price %>">
+                    </div>
+                    <div class="col-md-8">
+                        <label class="form-label" for="location">Location</label>
+                        <input class="form-control" name="listing[location]"   value="<%= listing.location %>" type="text">
+
+
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="country">Country</label>
+                    <input class="form-control"  name="listing[country]" value="<%= listing.country %>" type="text">
+
+
+                </div>
+                
+                
+                
+                
+                <button class="btn edit-btn">Edit</button>
+            </form>
+        </div>
+    </div>
+    
+    
+</body>

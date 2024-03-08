@@ -1,0 +1,57 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+    <h3 class="text-center  mt-2">Create New Listing</h3>
+    <div class="row m-3">
+        <div class="col-8 offset-2">
+            <form method="POST" action="/listings"  class="" novalidate  >
+
+                <div class="m-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input required class="form-control" name="listing[title]" placeholder="Enter your title" type="text">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea required class="form-control" name="listing[description]" placeholder="Enter your description" type="text"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image Link</label>
+                    <input name="listing[image]" class="form-control" placeholder="Enter your image url" type="url"></input>
+                
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label" for="price">Price</label>
+                        <input required class="form-control" name="listing[price]" placeholder="Enter your price" type="text">
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label class="form-label" for="location">Location</label>
+                        <input  required class="form-control" name="listing[location]" placeholder="Enter your location" type="text">
+                    </div>
+                </div>
+                
+                
+                <div class="mb-3">
+                    <label class="form-label" for="country">Country</label>
+                    <input required class="form-control" name="listing[country]" placeholder="Enter your Country" type="text">
+                </div>
+        
+        
+                
+                
+                
+                
+                
+        
+        
+                <button class="btn btn-success">Submit</button>
+        
+        
+        
+        
+        
+        
+            </form>
+        </div>
+    </div>
+    
+</body>

@@ -1,0 +1,20 @@
+h1{
+    background-color: aqua;
+    padding: auto;
+    margin: auto;
+    border-radius: 20px;
+    padding: 20px;
+   
+}
+
+footer{
+    position:absolute;
+    bottom: 0;
+    width: 100vw;
+    background-color:gray;
+    text-align: center;
+}
+nav{
+    /* background-color: aquamarine; */
+    margin-bottom: 10%;
+}
