@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 // console.log(mongoose);
 
-const Schema  = mongoose;
+const Schema  = mongoose.Schema;
 
 // console.log(Schema);
 
@@ -22,7 +22,7 @@ const listingSchema = new Schema({
   
 });
 
-const User= mongoose.model('User',listingSchema);
+const User= new mongoose.model('User',listingSchema);
 
 
 
