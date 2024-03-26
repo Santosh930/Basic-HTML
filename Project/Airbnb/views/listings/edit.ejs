@@ -8,39 +8,39 @@
 
         <div class="mb-2">
             <label for="title" class="form-label">Title:</label>
-            <input  required type="text"  class="form-control"  value="<%= listing.title %>"  placeholder="" name="title" id="title">
+            <input  required type="text"  class="form-control"  value="<%= listing.title %>"  placeholder="" name="listing[title]" id="title">
             <div class="valid-feedback">
                 Looks good!
               </div>
         </div>
         <div  class="mb-2">
             <label for="description" class="form-label">Description</label>
-            <textarea  required type="text"  class="form-control" name="description" id="description"><%= listing.description %></textarea>
+            <textarea  required type="text"  class="form-control" name="listing[description]" id="description"><%= listing.description %></textarea>
             <div class="valid-feedback">
                 Looks good!
               </div>
         </div>
         <div  class="mb-2">
             <label for="price" class="form-label">Price</label>
-            <input required type="number"  class="form-control"  value="<%= listing.price %>" id="price"  name="price">
+            <input required type="number"  class="form-control"  value="<%= listing.price %>" id="price"  name="listing[price]">
             <div class="invalid-feedback">
                 Please enter a valid price.
               </div>
         </div>
         <div  class="mb-2">
             <label for="image" class="form-label">Image Url</label>
-            <input type="url"  class="form-control" value="<%= listing.image %>"  id="image"  name="image">
+            <input type="url"  class="form-control" value="<%= listing.image %>"  id="image"  name="listing[image]">
         </div>
         <div  class="mb-2">
             <label for="location" class="form-label">Location</label>
-            <input  required type="text"  class="form-control"  value="<%= listing.location %>" id="location" name="location">
+            <input  required type="text"  class="form-control"  value="<%= listing.location %>" id="location" name="listing[location]">
             <div class="invalid-feedback">
                 Please enter a valid location.
               </div>
         </div>
         <div  class="mb-2">
             <label for="country" class="form-label">Country</label>
-            <input  required type="text"  class="form-control" value="<%= listing.country %>" id="country" name="country">
+            <input  required type="text"  class="form-control" value="<%= listing.country %>" id="country" name="listing[country]">
             <div class="invalid-feedback">
                 Please enter a valid country.
               </div>

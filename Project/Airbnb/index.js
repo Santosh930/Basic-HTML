@@ -1,31 +1,9 @@
 const express=require('express');
 const mongoose=require('mongoose');
-const model=require('./model/app.js');
-const MONGO_URL="mongodb://127.0.0.1:27017/Airbnb-2"
-const app=express();
-//for applying css
-app.use(express.static('public'));
-//for using another method except get & post
-const methodOverride=require('method-override');
-app.use(methodOverride('_method'));
-//for ejs-mate template
-const ejsMate=require('ejs-mate');
-app.engine('ejs',ejsMate);
-
-//wrapAsync
 const wrapAsync=require('./utils/wrapAsync.js');
 
-//expressError
-const ExpressError=require('./utils/ExpressError.js');
-
-
-const Listing=require('./model/app.js');
-
-app.use(express.urlencoded({extended:true}));
-
-
-
-
+const MONGO_URL="mongodb://127.0.0.1:27017/Airbnb-2"
+const app=express();
 //database connectivity
 main().then(()=>{
     console.log('Connected DB!');
@@ -37,6 +15,85 @@ async function main(){
     mongoose.connect(MONGO_URL);
 
 }
+
+//connect-flash is importing
+const flash=require('connect-flash');
+
+
+//expressError
+const ExpressError=require('./utils/ExpressError.js');
+
+//for using another method except get & post
+const methodOverride=require('method-override');
+app.use(methodOverride('_method'));
+app.use(express.urlencoded({extended:true}));
+
+//home route
+app.get('/',wrapAsync((req,res)=>{
+    res.render("./listings/home.ejs");
+}));
+
+
+//for apply express-session
+const  session=require('express-session');
+const sessionOptions={
+    secret:"mysupersecratestring",
+    resave:false,
+    saveUninitialized:true,
+    cookie:{
+        expires:Date.now()+7*24*60*60*1000,
+        maxAge:7*24*60*60*1000,
+        httpOnly:true,
+    }
+
+}
+app.use(session(sessionOptions));
+//for connect-flash message
+app.use(flash());
+app.use((req,res,next)=>{
+    res.locals.success=req.flash("success");
+    res.locals.error=req.flash("error");
+    next();
+})
+
+//for signup/login using passport
+const passport=require('passport');
+const LocalStrategy=require('passport-local');
+const User=require('./models/user.js');
+app.use(passport.initialize());
+app.use(passport.session());//session
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+// app.get('/demouser',async(req,res)=>{
+//     let fakeUser=new User({
+//         email:'raman@gmail.com',
+//         username:'raman',
+//     });
+//     let registeredUser=await User.register(fakeUser,'helloworld');
+//     res.send(registeredUser);
+// });
+
+//user router
+const userRouter=require('./routes/user.js');
+app.use('/',userRouter);
+
+//listing router
+const listingRouter=require('./routes/listing.js');
+app.use('/listings',listingRouter);
+
+//review router
+const reviewRouter=require('./routes/review.js');
+app.use('/listings/:id/reviews',reviewRouter);
+
+//for applying css
+app.use(express.static('public'));
+
+//for ejs-mate template
+const ejsMate=require('ejs-mate');
+
+app.engine('ejs',ejsMate);
+
 //inserting sample data in db...
 
 // app.get('/testData', async   (req,res)=>{
@@ -58,127 +115,9 @@ async function main(){
 
 // });
 
-
-
-
-
-//home route
-app.get('/',(req,res)=>{
-    res.render("./listings/home.ejs");
-});
-
-//index route
-
-app.get('/listings',async (req,res)=>{
-
-    let allListings= await Listing.User.find({});
-    // console.log(allListings);
-    res.render('./listings/index.ejs',{allListings});
-});
-
-
-
-
-//show route
-
-app.get('/listings/:id',async (req,res)=>{
-    let {id}=req.params;
-
-    const listing=await  Listing.User.findById(id);
-    // console.log(listing);
-    // console.log(name);
-    // console.log(req.params);
-
-
-
-    res.render('./listings/show.ejs',{listing});
-
-
-
-});
-
-
-// new route
-app.get('/listing/new',(req,res)=>{
-    res.render('./listings/new.ejs')
-
-});
-//creat route
-// app.post('/listings', async (req,res,next)=>{
-
-//     try {
-
-//     const newListing=new Listing.User(req.body);
-//     await newListing.save()
-//    // console.log(newListing);
-//     res.redirect('/listings');
-    
-        
-//     } catch (error) {
-//         next(error);
-        
-//     }
-
-// });
-//create rout
-app.post('/listings',wrapAsync(async (req,res)=>{
-    const newListing=new Listing.User(req.body);
-    //   if(!newListing.title){
-    //         throw new ExpressError(400,'title is missing!');
-    
-    //     }
-    //     if(!newListing.price){
-    //         throw new ExpressError(400,'price is missing!');
-    
-    //     }
-    //     if(!newListing.location){
-    //         throw new ExpressError(400,'location is missing!');
-    
-    //     }
-    //     if(!newListing.description){
-    //         throw new ExpressError(400,'description is missing!');
-    
-    //     }
-    await newListing.save()
-   // console.log(newListing);
-    res.redirect('/listings');
-
-    
-
-}));
-
-//edit route
-app.get('/listings/:id/edit',wrapAsync(async (req,res)=>{
-    let {id}=req.params;
-    const listing=await  Listing.User.findById(id);
-
-    res.render('./listings/edit.ejs',{listing});
-}));
-
-//update route
-
-app.put('/listings/:id', wrapAsync(async (req,res)=>{
-    let {id}=req.params;
-
-    await Listing.User.findByIdAndUpdate(id,{...req.body});
-
-    res.redirect(`/listings/${id}`);
-
-}));
-
-//delete
-
-app.delete('/listings/:id', wrapAsync( async(req,res)=>{
-    let {id}=req.params;
-   const deletedListing= await Listing.User.findByIdAndDelete(id);
-//    console.log(deletedListing);
-   res.redirect('/listings');
-    
-}));
-
 //all route
 app.all('*',(req,res,next)=>{
-    next(new ExpressError('404','Page Not Found!'));
+    next(new ExpressError(404,'Page Not Found!'));
 });
 
 

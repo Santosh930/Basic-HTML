@@ -1,9 +1,10 @@
 <% layout('/layouts/boilerplate') %>
 <body>
     
-    <div class="row m-2">
+    <div class="row my-5">
       <div class="col-8 offset-2 ">
-        <h3 >Listing Details:</h3>
+        <b><%= listing.title %></b> <br>
+        
       </div>
       <div class="col-8 offset-2">
 
@@ -15,7 +16,7 @@
             
             <div class="card-body">
               <p>
-              <b><%= listing.title %></b> <br>
+                <b><%= listing.title %></b> <br> 
        <%= listing.description %> <br>
            &#8377;<%= listing.price.toLocaleString() %> <br>
             <%= listing.location %> <br>
@@ -38,13 +39,42 @@
 
 </div>
 <div class="row  mb-2">
-  <div class=" offset-2 col-1"> <a  class="btn  btn-success" href="/listings/<%=listing._id %>/edit" target="_blank" rel="noopener noreferrer">Edit</a></div>
+  <div class=" offset-2 col-2 "> <a  class="btn  btn-success px-5" href="/listings/<%=listing._id %>/edit" target="_blank" rel="noopener noreferrer">Edit</a></div>
   <div class="col-2">
     <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
 
-      <button class="btn edit-btn">Delete</button>
+      <button class="btn edit-btn px-5">Delete</button>
   </form>
   </div>
 </div>
+
+<div class="row mb-2">
+  <div class="col-8 offset-2">
+    <hr>
+    <h4>Leave a Review</h4>
+    <form action="/listings/<%= listing._id %>/reviews" method="POST" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="rating"  >Rating</label>
+        <input type="range" class="form-range" min="1" max="5"  name="review[rating]" id="rating">
+      </div>
+      <div class="mb-3">
+        <label for="comment" class="form-label">comment</label>
+        <textarea required class="form-control" name="review[comment]" id="comment" cols="50" rows="05"></textarea>
+        <div class="invalid-feedback">
+          Please add some comments.
+        </div>
+      </div>
+      <button class="btn btn-outline-dark">Submit</button>
+    </form>
+
+    <hr>
+    <h4>All reviews</h4>
+    
+
+     </div>
+
+</div>
+
+
 
 </body>

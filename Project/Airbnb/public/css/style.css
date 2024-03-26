@@ -124,3 +124,8 @@ body {
     color: #222;
   }
   
+
+  /* Review */
+  .review{
+    border: 1px solid gray !important;
+  }
